@@ -55,3 +55,4 @@
 (package! beacon)
 (package! indent-guide)
 (package! auto-complete)
+(package! swiper-helm)

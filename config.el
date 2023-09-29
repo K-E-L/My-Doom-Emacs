@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Dillon Ching"
-      user-mail-address "dk8ching@gmail.com")
+(setq user-full-name "John Doe"
+      user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+;; (setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
+     ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -41,6 +41,13 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+
+;; 4 space indentation
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 4)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -74,11 +81,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-;; Doom themes
-
-;; set spacing to two spaces
-(setq web-mode-script-padding 2)
-(setq js-indent-level 2)
+;;
 (global-visual-line-mode t)
 
 ;; package-install: beacon
@@ -104,24 +107,6 @@
              '("\\.sql$" . (lambda ()
                               (sql-mode)
                               (sql-highlight-postgres-keywords))))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ;;; plsql.el --- Programming support for PL/SQL code
 (defgroup plsql nil "")
